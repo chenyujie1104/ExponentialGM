@@ -2,7 +2,7 @@
 % Please edit documentation in R/EGM.R
 \name{EGM.fit}
 \alias{EGM.fit}
-\title{Fit the likelihood based Exponential Graphical Model via maximum likelihood or penalized maximum likelihood.}
+\title{Fit the likelihood-based Exponential Graphical Model via maximum likelihood or penalized maximum likelihood.}
 \usage{
 EGM.fit(
   X,
@@ -21,25 +21,25 @@ EGM.fit(
 
 \item{model}{The model to be fitted. The model must be either "pgm" or "ising".}
 
-\item{theta}{The initial value of the parameter. Default is 0.}
+\item{theta}{The initial value of the parameter. The default is 0.}
 
-\item{lambda}{The penalty parameter. Default is NULL.}
+\item{lambda}{The penalty parameter. The default is NULL.}
 
-\item{penalty}{The penalty type. The penalty must be either "none" or "l1". Default is "none".}
+\item{penalty}{The penalty type. The penalty must be either "none" or "l1". The default is "none".}
 
-\item{NMC}{The number of Monte Carlo samples  for approximate the gradient of log likelihood. Default is 500.}
+\item{NMC}{The number of Monte Carlo samples for approximate the gradient of the log-likelihood. The default is 500.}
 
-\item{step_size}{The step size for the gradient descent. Default is 0.003.}
+\item{step_size}{The step size for the gradient descent. The default is 0.003.}
 
-\item{epsilon}{The convergence criterion. Default is 0.00001.}
+\item{epsilon}{The convergence criterion. The default is 0.00001.}
 
-\item{max_iter}{The maximum number of iterations. Default is 3000.}
+\item{max_iter}{The maximum number of iterations. The default is 3000.}
 }
 \value{
 Estimate of parameter theta, a p x p matrix.
 }
 \description{
-Fit the likelihood based Exponential Graphical Model via maximum likelihood or penalized maximum likelihood.
+Fit the likelihood-based Exponential Graphical Model via maximum likelihood or penalized maximum likelihood.
 }
 \examples{
 p = 3

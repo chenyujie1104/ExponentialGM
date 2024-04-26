@@ -2,7 +2,7 @@
 % Please edit documentation in R/EGM.R
 \name{EGM.SS}
 \alias{EGM.SS}
-\title{Selecting non-zero edges via stable selection method for estimator of the likelihood based Exponential Graphical Model. Produce the non-zero probability for each edge and the selected edges based on chosen cuutoff threshold.}
+\title{Select non-zero edges via a stable selection method for the estimator of the likelihood-based Exponential Graphical Model. Produce the non-zero probability for each edge and the selected edges based on the chosen cutoff threshold.}
 \usage{
 EGM.SS(
   X,
@@ -49,7 +49,7 @@ A list containing the following elements:
 }
 }
 \description{
-Selecting non-zero edges via stable selection method for estimator of the likelihood based Exponential Graphical Model. Produce the non-zero probability for each edge and the selected edges based on chosen cuutoff threshold.
+Select non-zero edges via a stable selection method for the estimator of the likelihood-based Exponential Graphical Model. Produce the non-zero probability for each edge and the selected edges based on the chosen cutoff threshold.
 }
 \examples{
 

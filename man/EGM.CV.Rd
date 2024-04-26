@@ -2,7 +2,7 @@
 % Please edit documentation in R/EGM.R
 \name{EGM.CV}
 \alias{EGM.CV}
-\title{Does k-fold cross-validation for EGM.fit, produces the optimal lambda and step size, and returns the result theta.}
+\title{This function function implements the k-fold cross-validation for EGM.fit, produces the optimal lambda and step size, and returns the resulting theta.}
 \usage{
 EGM.CV(
   X,
@@ -23,23 +23,23 @@ EGM.CV(
 
 \item{model}{The model to be fitted. The model must be either "pgm" or "ising".}
 
-\item{theta}{The initial value of the parameter. Default is 0.}
+\item{theta}{The initial value of the parameter. The default is 0.}
 
 \item{lambda}{A gird of lambda (penalty parameter) values used for the EGM.fit.}
 
-\item{NMC}{The number of Monte Carlo samples  for approximate the gradient of log likelihood. Default is 500.}
+\item{NMC}{The number of Monte Carlo samples to approximate the gradient of the log-likelihood. The default is 500.}
 
-\item{step_size}{A grid of step size values for the gradient descent. Default is 0.003.}
+\item{step_size}{A grid of step size values for the gradient descent. The default is 0.003.}
 
 \item{epsilon}{The convergence criterion. Default is 0.0001.}
 
-\item{max_iter}{The maximum number of iterations. Default is 3000.}
+\item{max_iter}{The maximum number of iterations. The default is 3000.}
 
-\item{k}{The number of folds for cross-validation. Default is 10.}
+\item{k}{The number of folds for cross-validation. The default is 10.}
 
-\item{par}{Logical. If TRUE, the function will run in parallel. Default is FALSE.}
+\item{par}{Logical. If TRUE, the function will run in parallel. The default is FALSE.}
 
-\item{max_cores}{The maximum number of cores to be used for parallel computation. Default is 4.}
+\item{max_cores}{The maximum number of cores to be used for parallel computation. The default is 4.}
 }
 \value{
 A list containing the following elements: 
@@ -50,7 +50,7 @@ A list containing the following elements:
 }#'
 }
 \description{
-Does k-fold cross-validation for EGM.fit, produces the optimal lambda and step size, and returns the result theta.
+This function function implements the k-fold cross-validation for EGM.fit, produces the optimal lambda and step size, and returns the resulting theta.
 }
 \examples{
 

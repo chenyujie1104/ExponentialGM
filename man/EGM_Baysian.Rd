@@ -24,28 +24,28 @@ EGM_Baysian(
 
 \item{NMCMC}{The length of the MCMC chain for HMC. Default is 2000.}
 
-\item{burnin}{The number of burnin samples. Default is 1000.}
+\item{burnin}{The number of burnin samples. The default is 1000.}
 
 \item{N}{The number of MCMC samples for approximate the gradient of log likelihood and log likelihood. Default is 500.}
 
-\item{L}{The number of leapfrog steps. Default is 15.}
+\item{L}{The number of leapfrog steps. The default is 15.}
 
-\item{step_size}{The step size for HMC . Default is 0.01.}
+\item{step_size}{The step size for HMC. The default is 0.01.}
 
-\item{a_lambda}{The shape parameter of the Gamma prior for for the global variance parameter. Default is 0.01.}
+\item{a_lambda}{The shape parameter of the Gamma prior for the global variance parameter. The default is 0.01.}
 
-\item{b_lambda}{The rate parameter of the Gamma prior for the global variance parameter. Default is 0.01.}
+\item{b_lambda}{The rate parameter of the Gamma prior for the global variance parameter. The default is 0.01.}
 
-\item{tau}{The standard deviation of the Gaussian prior for diagnoals in theta in the Ising model. Default is 10.}
+\item{tau}{The standard deviation of the Gaussian prior for diagonals in theta in the Ising model. The default is 10.}
 }
 \value{
 A list containing the following elements:
 \itemize{
- \item thetaout: The posterior samples of the model parameter theta, a (p * (p + 1) / 2) x (NMCMC - burnin) matrix. Each column is a vectorized version of one posterior sample of the parameter theta.
- \item lambdaout: The posterior samples of the local variance parameter lambda, a (NMCMC - burnin) x 1 vector.
- \item bayesout_theta: The posterior mean of the parameter theta, a p x p matrix.
- \item MH_acceptance: The acceptance rate of the Metropolis-Hastings step.
- \item Uout: The posterior probabiliry , a (NMCMC - burnin) x 1 vector.
+ \item thetaout: The posterior samples of the model parameter theta, a (p * (p + 1) / 2) x (NMCMC - burnin) matrix. Each column is a vectorized version of one posterior sample of the parameter theta.
+ \item lambdaout: The posterior samples of the local variance parameter lambda, a (NMCMC - burnin) x 1 vector.
+ \item bayesout_theta: The posterior mean of the parameter theta, a p x p matrix.
+ \item MH_acceptance: The acceptance rate of the Metropolis-Hastings step.
+ \item Uout: The posterior probabiliry, a (NMCMC - burnin) x 1 vector.
 }
 }
 \description{

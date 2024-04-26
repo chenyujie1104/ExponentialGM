@@ -2,7 +2,7 @@
 % Please edit documentation in R/EGM.R
 \name{RBM_fit}
 \alias{RBM_fit}
-\title{Fit the Restricted Boltzmann Machine via maximum likelihood}
+\title{Fit the Restricted Boltzmann Machine via maximum likelihood method.}
 \usage{
 RBM_fit(
   V,
@@ -17,7 +17,7 @@ RBM_fit(
 )
 }
 \arguments{
-\item{V}{The input dataset on visible varibales, of dimension nobs x nvars; each row is an observation vector.}
+\item{V}{The input dataset on visible varibales, of dimension n x p; each row is an observation vector.}
 
 \item{p}{The number of visible variables.}
 
@@ -39,7 +39,7 @@ RBM_fit(
 Estimate of the parameter theta, a (p+m) x (p+m) matrix.
 }
 \description{
-Fit the Restricted Boltzmann Machine via maximum likelihood
+Fit the Restricted Boltzmann Machine via maximum likelihood method.
 }
 \examples{
 n = 1000
