@@ -7,63 +7,79 @@ Pairwise exponential family graphical models constitute a flexible class of mode
 
 ## Examples
 
-### Ising model
+### Ising model (Fully observed model)
 The Ising model is a popular model for multivariate binary data. A typical example of modeling multivariate binary using the package is given below. 
 
 ```
-# R code to generate multivariate binary data #
-gen_theta0 = function(p, omega, eta, coupling = "positive")
-{
-  ## Each element is non-zero with probability eta ##
-  ## omega is a positive number denoting edge strength ##
-  theta0 = matrix(0, p, p)
-  for(j in 1:p)
-  {
-    for(k in j:p)
-    {
-      z = rbinom(1, 1, eta)
-      if(coupling == "mixed"){
-        theta0[j,k] = z*(-1)^rbinom(1, 1, 0.5)*omega
-        theta0[k,j] = theta0[j,k]
-      }else if(coupling == "positive"){
-        theta0[j,k] = z*omega
-        theta0[k,j] = theta0[j,k]
-      }else if(coupling == "negative"){
-        theta0[j,k] = z*(-omega)
-        theta0[k,j] = theta0[j,k]
-      }
-    }
-  }
-  return(theta0)
-}
-
-IsingSim = function(n, theta, max_iter)
-{
-  p = ncol(theta)
-  X = matrix(rbinom(n*p, 1, exp(diag(theta))/(1+exp(diag(theta)))), n, p)
-  
-  for(k in 1:max_iter)
-  {
-    for(j in 1:p)
-    {
-      t = exp(theta[j,j] + 2*X[, -j]%*%matrix(theta[-j, j], p - 1, 1))
-      X[,j] = rbinom(n, 1, t/(1+t))
-    }
-  }
-  return(X)
-}
-
-# Generated data #
-n = 100
+library(ExponentialGM)
 p = 3
-omega = 1  ## Edge strength of non-zero edges
-eta = 0.05 ## Probability with which each edge is set to non-zero
-theta0 = gen_theta0(p, omega, eta, coupling = "negative")
-max_iter = 1000
-X = IsingSim(n, theta0, max_iter)
+n = 100
+theta0 = matrix(-0.8, p, p)
+X_3 = IsingSim(n, theta0, 1000)
+EGM.fit(X = X_3, model = "ising")
 
-step_size = 0.01
-N = 500
-epsilon = 0.0001
+```
+### RBM (Partially observed model)
+
+```
+# install.packages("devtools")
+## Access MNIST data from "RBM" package ##
+library(devtools)
+install_github("TimoMatzen/RBM")
+library(RBM)
+data(MNIST)
+install.packages("OpenImageR")
+library(OpenImageR)
+```
+The above chunk of code installs the "RBM" package which contains the MNIST data. The data contains images of handwritten digits (0-9). The original data contains images of 784 = 28 by 28 pixels. Each pixel records a number within 0-255. We first preprocess it to images of 15 by 15 pixels, and also conver each pixel to 0 or 1 using the "OpenImageR" package. 
+
+```
+zero_data = which(MNIST$trainY == 0)
+zeroX = MNIST$trainX[zero_data,]
+zero_data_test = which(MNIST$testY == 0)
+zeroX_test = MNIST$testX[zero_data_test,]
+
+n = nrow(zeroX)
+p = ncol(zeroX)
+q = 15
+zeroX_low = matrix(0, n, q^2)
+for(i in 1:n)
+{
+  y = resizeImage(matrix(zeroX[i,], sqrt(p), sqrt(p), byrow = T), width = q, height = q, normalize_pixels = T)
+  zeroX_low[i,] = as.vector(y)
+}
+zeroX_low[zeroX_low>0.5] = 1
+zeroX_low[zeroX_low<=0.5] = 0
+
+
+n_t = nrow(zeroX_test)
+p = ncol(zeroX_test)
+
+zeroX_test_low = matrix(0, n_t, q^2)
+for(i in 1:n_t)
+{
+  y = resizeImage(matrix(zeroX_test[i,], sqrt(p), sqrt(p), byrow = T), width = q, height = q, normalize_pixels = T)
+  zeroX_test_low[i,] = as.vector(y)
+}
+zeroX_test_low[zeroX_test_low>0.5] = 1
+zeroX_test_low[zeroX_test_low<=0.5] = 0
+
+
+par(mar=c(5.1, 4.1, 4.1, 4.1))
+plot(matrix(as.factor(zeroX_low[1,]), q, q))
+plot(matrix(as.factor(zeroX_low[2,]), q, q))
+
+V = zeroX_low
+p = ncol(V)
+m = 50
+N = 1000
+step_size = 0.00001
+epsilon = 0.06
+theta = matrix(0, p+m, p+m)
+convergence_check = 10
+iter = 0
 max_iter = 1000
+k = 1
+
+theta_mle = RBM_fit(V, p, m, N, step_size, epsilon, k, method = "likelihood", max_iter)
 ```
