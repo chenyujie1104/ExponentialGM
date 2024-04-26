@@ -83,3 +83,10 @@ k = 1
 
 theta_mle = RBM_fit(V, p, m, N, step_size, epsilon, k, method = "likelihood", max_iter)
 ```
+
+After fitting the RBM model, we want to reconstruct some test images.
+```
+V_obs = zeroX_test_low[1,]
+V_mle = RBM_reconstruct(V_obs, theta_mle, p, m)
+plot(matrix(V_mle$v1, q, q))
+```
