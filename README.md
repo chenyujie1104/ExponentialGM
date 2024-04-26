@@ -3,7 +3,7 @@ R package for implementing full-likelihood based inference in pariwise exponenti
 
 
 ## Description
-Pairwise exponential family graphical models constitute a flexible class of models that allows modeling dependence in multivariate data through simple univariate exponential families. Moreover, when some variables are not observed, the resulting marginal distribution deviates from exponential family allowing further flexibility; these latent exponential family models are more popularly known as Boltzmann machines, which are fundamental building blocks of generative AI. However, a key roadblock in likelihood-based inference for these models is the intractable normalizing constant. We develop a Monte Carlo estimate of the normalizing constant, which enables us to peform full-likelihood and Bayes analysis on these models.
+Pairwise exponential family graphical models constitute a flexible class of models that allows modeling dependence in multivariate data through simple univariate exponential families. Moreover, when some variables are not observed, the resulting marginal distribution deviates from the exponential family, allowing further flexibility; these latent exponential family models are more popularly known as Boltzmann machines, which are fundamental building blocks of generative AI. However, a key roadblock in likelihood-based inference for these models is the intractable normalizing constant. We develop a Monte Carlo estimate of the normalizing constant, which enables us to perform full-likelihood and Bayes analysis on these models.
 
 ## Examples
 
@@ -19,6 +19,7 @@ X_3 = IsingSim(n, theta0, 1000)
 EGM.fit(X = X_3, model = "ising")
 
 ```
+
 ### RBM (Partially observed model)
 
 ```
