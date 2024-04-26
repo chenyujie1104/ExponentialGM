@@ -66,8 +66,8 @@ zeroX_test_low[zeroX_test_low<=0.5] = 0
 
 
 par(mar=c(5.1, 4.1, 4.1, 4.1))
-plot(matrix(as.factor(zeroX_low[1,]), q, q))
-plot(matrix(as.factor(zeroX_low[2,]), q, q))
+plot(matrix(as.factor(zeroX_low[1,]), q, q), main = "")
+plot(matrix(as.factor(zeroX_low[2,]), q, q), main = "")
 
 V = zeroX_low
 p = ncol(V)
@@ -88,5 +88,10 @@ After fitting the RBM model, we want to reconstruct some test images.
 ```
 V_obs = zeroX_test_low[1,]
 V_mle = RBM_reconstruct(V_obs, theta_mle, p, m)
-plot(matrix(V_mle$v1, q, q))
+par(mfrow = c(1,2))
+plot(matrix(V_obs, q, q), main = "")
+plot(matrix(V_mle$v1, q, q), main = "")
 ```
+Below is an example output:
+
+![](zero_example_reconstruction.jpeg)
