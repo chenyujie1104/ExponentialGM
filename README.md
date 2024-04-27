@@ -102,6 +102,6 @@ Below is an example output:
 
 ![](zero_example_reconstruction.jpeg)
 
-### Count data and RBM training by Contrastive divergence
+### Count data and RBM training by Contrastive Divergence
 
 To fit the Poisson Graphical model, use model = "pgm" in ExponentialGM(). To train the RBM using constrastive divergence, use method = "CD" in RBM().
