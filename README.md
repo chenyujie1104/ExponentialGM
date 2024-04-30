@@ -105,3 +105,7 @@ Below is an example output:
 ### Count data and RBM training by Contrastive Divergence
 
 To fit the Poisson Graphical model, use model = "pgm" in ExponentialGM(). To train the RBM using constrastive divergence, use method = "CD" in RBM().
+
+## Reference
+
+Chen, Y., Bhadra, A. and Chakraborty, A. (2024). Likelihood Based Inference in Fully and Partially Observed Exponential Family Graphical Models with Intractable Normalizing Constants. [arXiv:2404.17763] (https://arxiv.org/abs/2404.17763)
