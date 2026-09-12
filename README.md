@@ -2,9 +2,7 @@
 R package for implementing full-likelihood based inference in pariwise exponential family graphical models. The models include fully observed (Ising model, Poisson graphical model) and partially observed (Boltzmann machine and Restricted Boltzmann machine) models. To install the package, use:
 
 ```
-install.packages("devtools")
-install_github("chenyujie1104/ExponentialGM")
-
+remotes::install_github("chenyujie1104/ExponentialGM")
 ```
 
 ## Description
