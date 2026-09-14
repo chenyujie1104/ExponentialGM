@@ -207,7 +207,7 @@ EGM_Baysian <- function(model, X, NMCMC = 2000, burnin = 1000, N = 1000, L = 5, 
 #' @param max_iter The maximum number of iterations. Defaut is 100
 #' @return Estimate of the parameter theta, a (p+m) x (p+m) matrix.
 #' @examples
-#' n\ = 1000
+#' n = 1000
 #' p = 3
 #' rho = 0.5
 #' Sigma = (1-rho)*diag(p) + rho*matrix(1, p, p)
