@@ -40,7 +40,7 @@ n = 1000
 p = 3
 rho = 0.5
 Sigma = (1-rho)*diag(p) + rho*matrix(1, p, p)
-z = rmvnorm(n, sigma = Sigma)
+z = mvtnorm::rmvnorm(n, sigma = Sigma)
 y = matrix(0, n, p)
 y[z>0] = 1
 step_size = 0.001
