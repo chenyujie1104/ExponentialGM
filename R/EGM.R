@@ -254,7 +254,16 @@ BM_fit = function(V, p = ncol(V), m = 50, N = 1000, step_size =  0.00001, epsilo
 #' @param L The number of samples to be generated. The default is 200.
 #' @return The reconstructed data.
 #' @examples
-#' V_recon = BM_reconstruct(v, theta_BM, p, m, max_iter, L)
+#' p = 3
+#' n = 200
+#' rho = 0.5
+#' Sigma = (1-rho)*diag(p) + rho*matrix(1, p, p)
+#' z = mvtnorm::rmvnorm(n, sigma = Sigma)
+#' y = matrix(0, n, p)
+#' y[z > 0] = 1
+#' m = 2*p
+#' theta_BM = BM_fit(y, p, m = m, N = 100, step_size = 1e-4, epsilon = 0.03, max_iter = 20)
+#' V_recon = BM_reconstruct(y[1, ], theta_BM, p = p, m = m, max_iter = 20, L = 50)
 #' @export
 BM_reconstruct = function(v, theta, p = ncol(v), m = 50, max_iter = 100, L = 200)
 {
