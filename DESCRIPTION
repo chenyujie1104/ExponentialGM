@@ -1,13 +1,14 @@
 Package: ExponentialGM
 Type: Package
-Title: Implementing full-likelihood based inference in pariwise exponential family graphical models.
+Title: Implementing full-likelihood based inference in pariwise exponential family graphical models
 Version: 1.0
 Date: 2024-04-18
 Author: Yujie Chen
 Maintainer: Yujie Chen<chen1866@purdue.edu>
 Description: This package is for implementing full-likelihood based inference in pariwise exponential family graphical models.
 License: MIT
-Imports: Rcpp (>= 1.0.9), Rcpp, LaplacesDemon, OpenImageR, doParallel, foreach, glmnet, ks, plot.matrix
+Imports: Rcpp (>= 1.0.9), LaplacesDemon, OpenImageR, doParallel, foreach, glmnet, ks, plot.matrix
+Suggests: mvtnorm
 LinkingTo: Rcpp, RcppArmadillo
 RoxygenNote: 7.3.1
 Encoding: UTF-8
