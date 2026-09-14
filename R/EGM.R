@@ -211,7 +211,7 @@ EGM_Baysian <- function(model, X, NMCMC = 2000, burnin = 1000, N = 1000, L = 5, 
 #' p = 3
 #' rho = 0.5
 #' Sigma = (1-rho)*diag(p) + rho*matrix(1, p, p)
-#' z = rmvnorm(n, sigma = Sigma)
+#' z = mvtnorm::rmvnorm(n, sigma = Sigma)
 #' y = matrix(0, n, p)
 #' y[z>0] = 1
 #' step_size = 0.001
@@ -295,7 +295,7 @@ BM_reconstruct = function(v, theta, p = ncol(v), m = 50, max_iter = 100, L = 200
 #' p = 3
 #' rho = 0.5
 #' Sigma = (1-rho)*diag(p) + rho*matrix(1, p, p)
-#' z = rmvnorm(n, sigma = Sigma)
+#' z = mvtnorm::rmvnorm(n, sigma = Sigma)
 #' y = matrix(0, n, p)
 #' y[z>0] = 1
 #' step_size = 0.001
