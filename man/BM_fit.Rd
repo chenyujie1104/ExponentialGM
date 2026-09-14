@@ -36,7 +36,7 @@ Estimate of the parameter theta, a (p+m) x (p+m) matrix.
 Fit the Boltzmann Machine via maximum likelihood
 }
 \examples{
-n\ = 1000
+n = 1000
 p = 3
 rho = 0.5
 Sigma = (1-rho)*diag(p) + rho*matrix(1, p, p)
