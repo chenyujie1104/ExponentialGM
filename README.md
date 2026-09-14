@@ -1,6 +1,28 @@
 # ExponentialGM
-R package for implementing full-likelihood based inference in pariwise exponential family graphical models. The models include fully observed (Ising model, Poisson graphical model) and partially observed (Boltzmann machine and Restricted Boltzmann machine) models. To install the package, use:
+R package for implementing full-likelihood based inference in pariwise exponential family graphical models. The models include fully observed (Ising model, Poisson graphical model) and partially observed (Boltzmann machine and Restricted Boltzmann machine) models. 
 
+## Installation
+ExponentialGM contains C++ code (via Rcpp and RcppArmadillo), so it is builtfrom source on your machine. Run this first — it compiles a tiny C++ function using exactly the toolchain the package needs, and takes a few seconds:
+
+```
+install.packages(c("Rcpp", "RcppArmadillo"))
+
+Rcpp::cppFunction(depends = "RcppArmadillo",
+                  "double armaSum(arma::vec x) { return arma::sum(x); }")
+armaSum(1:4)
+#> [1] 10
+```
+If you see `10`, your setup is ready — continue to the installation step below.
+
+If it fails, you need R's development tools: [Rtools](https://cran.r-project.org/bin/windows/Rtools/)
+on Windows (match it to your R version), 
+the [Xcode command line tools](https://mac.r-project.org/tools/)
+on macOS (`xcode-select --install`), or `g++` and `gfortran` on Linux. 
+See [rcpp.org](https://www.rcpp.org/) and the
+[Rcpp FAQ](https://cran.r-project.org/web/packages/Rcpp/vignettes/Rcpp-FAQ.pdf)
+(section 1.3) for details. Install them, restart R, then run the check again.
+
+To install the package, use:
 ```
 remotes::install_github("chenyujie1104/ExponentialGM")
 ```
