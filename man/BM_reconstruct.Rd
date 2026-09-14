@@ -26,5 +26,14 @@ The reconstructed data.
 Reconstruct the data from the Boltzmann Machine
 }
 \examples{
-V_recon = BM_reconstruct(v, theta_BM, p, m, max_iter, L)
+p = 3
+n = 200
+rho = 0.5
+Sigma = (1-rho)*diag(p) + rho*matrix(1, p, p)
+z = mvtnorm::rmvnorm(n, sigma = Sigma)
+y = matrix(0, n, p)
+y[z > 0] = 1
+m = 2*p
+theta_BM = BM_fit(y, p, m = m, N = 100, step_size = 1e-4, epsilon = 0.03, max_iter = 20)
+V_recon = BM_reconstruct(y[1, ], theta_BM, p = p, m = m, max_iter = 20, L = 50)
 }
